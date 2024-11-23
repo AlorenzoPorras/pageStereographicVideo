@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videoteca Monográfica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <header class="text-white text-center p-4 shadow-sm">
+        <h1 class="display-5">Videos Monográficas</h1>
+        <p class="lead">Se muestran videos con la finalidad de encontrar distintos puntos focales en los videos con las siguientes caracteristicas.</p>
+    </header>
+
+    <div class="container my-5">
+        <div class="background-image"></div>
+
+        <div class="row text-center justify-content-center">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm" data-category="infraestructura">
+                    <img src="img/infrestructuraLeft-right.JPG" class="card-img-top" alt="Infraestructura">
+                    <div class="card-body">
+                        <h5 class="card-title">Infraestructura</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm" data-category="objeto">
+                    <img src="videos/frameC.png class="card-img-top" alt="Objeto">
+                    <div class="card-body">
+                        <h5 class="card-title">Objeto</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm" data-category="persona">
+                    <img src="videos/frameM.jpg"class="card-img-top" alt="Persona">
+                    <div class="card-body">
+                        <h5 class="card-title">Persona</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="carrusel-3d-modal" class="modal" onclick="cerrarModal()">
+        <div id="carrusel-3d-container-modal" class="carrusel-3d-container"></div>
+
+        <!-- Botón flotante izquierdo -->
+        <button class="btn-floating left-btn" onclick="irIzquierda(event)">⬅</button>
+
+        <!-- Botón flotante derecho -->
+        <button class="btn-floating right-btn" onclick="irDerecha(event)">➡</button>
+    </div>    
+
+    <footer class="text-white text-center p-3 mt-auto">
+        <p>&copy; Derechos reservados Adriel Eduardo Lorenzo Porras y TecNM</p>
+    </footer>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

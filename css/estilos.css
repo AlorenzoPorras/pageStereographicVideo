@@ -1,0 +1,211 @@
+/* Fondo de la sección central con diseño de olas */
+
+/* Alternativa: Fondo con olas suaves en color */
+.background-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(135, 206, 235, 0.15), rgba(240, 248, 255, 0.2));
+    z-index: -1;
+}
+
+/* Contenedor de tarjetas centrado en una sola fila */
+.container .row.text-center {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+    flex-wrap: nowrap;
+}
+
+/* Tamaño y estilo de las tarjetas */
+.card {
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+    width: 22rem;
+    height: 28rem;
+    border-radius: 10px;
+    background-color: #ffffff; /* Fondo blanco para las tarjetas */
+    color: #333; /* Color de texto oscuro */
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.05);
+}
+
+/* Imagen dentro de las tarjetas */
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 70%;
+    object-fit: cover;
+}
+
+/* Título de la tarjeta */
+.card .card-body h5 {
+    color: #444; /* Color oscuro para el texto */
+}
+
+/* Controles del carrusel */
+.carousel-inner {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro para los iconos del carrusel */
+    border-radius: 50%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+/* Estilo del encabezado */
+header {
+    background: linear-gradient(90deg, #0052D4, #4364F7, #6FB1FC);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Estilo del pie de página */
+footer {
+    background-color: #444; /* Fondo oscuro */
+    color: #ddd; /* Texto claro */
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el modal de carrusel */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.carrusel-3d-container {
+    position: relative;
+    width: 90vw; /* Ocupa el 90% del ancho de la ventana */
+    max-width: 1200px; /* Limitar a un ancho máximo */
+    height: 90vh; /* Ocupa el 90% del alto de la ventana */
+    max-height: 800px; /* Limitar a una altura máxima */
+    overflow: hidden;
+}
+
+.modal img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajusta la imagen dentro del contenedor sin distorsión */
+    border-radius: 10px;
+}
+
+/* Estilo de cada elemento del carrusel */
+.carrusel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.carrusel-item.active {
+    opacity: 1;
+}
+
+/* Estilo del texto de la imagen en el carrusel */
+.carrusel-text {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    padding: 5px;
+    border-radius: 5px;
+} 
+
+/* Botones flotantes en el modal */
+/* Eliminar cualquier borde azul o enfoque predeterminado */
+.btn-floating {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(200, 200, 200, 0.6);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    outline: none; /* Elimina el borde azul */
+    box-shadow: none; /* Elimina sombras adicionales en algunos navegadores */
+}
+
+/* También elimina el borde al enfocar con teclado */
+.btn-floating:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Efecto al pasar el mouse */
+.btn-floating:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Más claro al pasar el cursor */
+    transform: scale(1.1); /* Efecto de agrandamiento */
+}
+
+.left-btn {
+    left: 10px;
+}
+
+.right-btn {
+    right: 10px;
+}
+
+.btn-floating:hover,
+.btn-floating:focus {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo más claro */
+    transform: scale(1.1); /* Agrandamiento suave */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    outline: none; /* Elimina el cuadro azul */
+}
