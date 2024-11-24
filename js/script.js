@@ -4,7 +4,7 @@ function mostrarCarrusel(categoria) {
     contenedor.innerHTML = ''; // Limpiar el carrusel previo
 
     let videos = [];
-    if (categoria === 'persona') {
+    if (categoria === 'personal') {
         videos = [
             { src: 'videos/persona_monografica.mp4', alt: 'Persona Monográfica' },
             { src: 'videos/persona_camI.mp4', alt: 'Persona Perspectiva Izquierda' },
