@@ -1,6 +1,4 @@
 /* Fondo de la sección central con diseño de olas */
-
-/* Alternativa: Fondo con olas suaves en color */
 .background-image::before {
     content: "";
     position: absolute;
@@ -38,12 +36,12 @@
     filter: brightness(1.05);
 }
 
-/* Imagen dentro de las tarjetas */
 .card-img-top {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    height: 70%;
-    object-fit: cover;
+    width: 500px; /* Ancho fijo */
+    height: 450px; /* Altura fija */
+    object-fit: cover; /* Ajustar la imagen al contenedor manteniendo la proporción */
 }
 
 /* Título de la tarjeta */
@@ -202,10 +200,31 @@ footer a:hover {
     right: 10px;
 }
 
-.btn-floating:hover,
-.btn-floating:focus {
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo más claro */
-    transform: scale(1.1); /* Agrandamiento suave */
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
-    outline: none; /* Elimina el cuadro azul */
+/* Estilos adicionales para centrar el video */
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(135, 206, 235, 0.15), rgba(240, 248, 255, 0.2));
+}
+
+.video-container video {
+    width: 80%;
+    max-width: 1200px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+}
+/* Estilo para el video dentro del modal */
+.modal video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%; /* El video ocupará la mitad del ancho de la pantalla */
+    height: 90%; /* Ajusta la altura automáticamente manteniendo la proporción */
+    max-height: 100%; /* Limita el tamaño máximo en altura para evitar desbordes */
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5); /* Sombra para resaltar el video */
+    border-radius: 10px; /* Opcional: esquinas redondeadas */
 }

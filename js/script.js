@@ -3,99 +3,110 @@ function mostrarCarrusel(categoria) {
     const contenedor = document.getElementById('carrusel-3d-container-modal');
     contenedor.innerHTML = ''; // Limpiar el carrusel previo
 
-    let imagenes = [];
-    if (categoria === 'infraestructura') {
-        imagenes = [
-            { src: 'img/infCercano.JPG', alt: 'Infraestructura Cercano' },
-            { src: 'img/infMedio.JPG', alt: 'Infraestructura Medio' },
-            { src: 'img/infLejano.JPG', alt: 'Infraestructura Lejano' }
+    let videos = [];
+    if (categoria === 'persona') {
+        videos = [
+            { src: 'videos/persona_monografica.mp4', alt: 'Persona Monográfica' },
+            { src: 'videos/persona_camI.mp4', alt: 'Persona Perspectiva Izquierda' },
+            { src: 'videos/persona_camD.mp4', alt: 'Persona Perspectiva Derecha' }
         ];
-    } else if (categoria === 'objeto') {
-        imagenes = [
-            { src: 'img/objCercano.JPG', alt: 'Objeto Cercano' },
-            { src: 'img/objMedio.JPG', alt: 'Objeto Medio' },
-            { src: 'img/objLejano.JPG', alt: 'Objeto Lejano' }
+    } else if (categoria === 'movimiento') {
+        videos = [
+            { src: 'videos/movimiento.mp4', alt: 'Movimiento Monográfico' },
+            { src: 'videos/movD.mp4', alt: 'Movimiento Perspectiva Derecha' },
+            { src: 'videos/movI.mp4', alt: 'Movimiento Perspectiva Izquierda' }
         ];
-    } else if (categoria === 'persona') {
-        imagenes = [
-            { src: 'img/personCercana.JPG', alt: 'Persona Cercano' },
-            { src: 'img/personMedio.JPG', alt: 'Persona Medio' },
-            { src: 'img/personLejana.JPG', alt: 'Persona Lejano' }
+    } else if (categoria === 'caminata') {
+        videos = [
+            { src: 'videos/caminata.mp4', alt: 'Caminata Monográfica' },
+            { src: 'videos/camD.mp4', alt: 'Caminata Perspectiva Derecha' },
+            { src: 'videos/camI.mp4', alt: 'Caminata Perspectiva Izquierda' }
         ];
     }
 
-    // Crear elementos de imagen para el carrusel
-    imagenes.forEach((imgData, index) => {
-        const imgDiv = document.createElement('div');
-        imgDiv.className = 'carrusel-item';
+    // Crear elementos de video para el carrusel
+    videos.forEach((videoData, index) => {
+        const videoDiv = document.createElement('div');
+        videoDiv.className = 'carrusel-item';
+
+        if (index === 0) videoDiv.classList.add('active'); // El primer video será visible inicialmente
+
+        const video = document.createElement('video');
+        video.src = videoData.src;
+        video.alt = videoData.alt;
+        video.controls = true;
+        video.autoplay = true; // Reproducir automáticamente
+        video.muted = true; // Silenciar para evitar bloqueo de reproducción automática
+        video.loop = false; // Opcional: si deseas que los videos se reinicien automáticamente
         
-        if (index === 0) imgDiv.classList.add('active'); // El primer elemento será visible inicialmente
+        // Reiniciar la reproducción del video cuando se muestre
+        video.addEventListener('ended', () => {
+            video.currentTime = 0; // Reinicia el tiempo de reproducción
+            video.play(); // Vuelve a reproducir el video
+        });
 
-        const img = document.createElement('img');
-        img.src = imgData.src;
-        img.alt = imgData.alt;
+        // Añadir video y texto al div
+        const videoText = document.createElement('p');
+        videoText.className = 'carrusel-text';
+        videoText.textContent = videoData.alt;
 
-        // Añadir imagen y texto al div de la imagen
-        const imgText = document.createElement('p');
-        imgText.className = 'carrusel-text';
-        imgText.textContent = imgData.alt;
-
-        imgDiv.appendChild(img);
-        imgDiv.appendChild(imgText);
-        contenedor.appendChild(imgDiv);
+        videoDiv.appendChild(video);
+        videoDiv.appendChild(videoText);
+        contenedor.appendChild(videoDiv);
     });
 
     // Mostrar el modal
     const modal = document.getElementById('carrusel-3d-modal');
     modal.style.display = 'flex';
 
-    iniciarCarrusel();
+    iniciarCarrusel(); // Inicializar el carrusel sin cambio automático
 }
 
 function cerrarModal() {
     const modal = document.getElementById('carrusel-3d-modal');
     modal.style.display = 'none';
+
+    // Detener todos los videos
+    const videos = modal.querySelectorAll('video');
+    videos.forEach(video => video.pause());
+
     detenerCarrusel();
 }
 
-let carruselInterval;
 let carruselIndex = 0;
 
+// Inicializar carrusel (sin cambio automático)
 function iniciarCarrusel() {
     const items = document.querySelectorAll('.carrusel-item');
     carruselIndex = 0; // Reiniciar índice del carrusel
 
     items.forEach(item => item.classList.remove('active'));
-    if (items.length > 0) items[0].classList.add('active'); 
-
-    carruselInterval = setInterval(() => {
-        cambiarImagen(1); // Cambia automáticamente a la siguiente imagen
-    }, 8000);
+    if (items.length > 0) items[0].classList.add('active');
 }
 
 function detenerCarrusel() {
-    clearInterval(carruselInterval);
+    // No se usa cambio automático, pero esta función queda aquí por consistencia
 }
 
-// Cambiar la imagen del carrusel
-function cambiarImagen(direccion) {
+// Cambiar el video del carrusel
+function cambiarVideo(direccion) {
     const items = document.querySelectorAll('.carrusel-item');
     if (items.length === 0) return;
 
-    items[carruselIndex].classList.remove('active'); // Ocultar la imagen actual
+    items[carruselIndex].classList.remove('active'); // Ocultar el video actual
     carruselIndex = (carruselIndex + direccion + items.length) % items.length; // Cambiar índice
-    items[carruselIndex].classList.add('active'); // Mostrar la nueva imagen
+    items[carruselIndex].classList.add('active'); // Mostrar el nuevo video
 }
 
 // Funciones para los botones flotantes
 function irIzquierda(event) {
     event.stopPropagation(); // Evita cerrar el modal al hacer clic en el botón
-    cambiarImagen(-1); // Cambiar a la imagen anterior
+    cambiarVideo(-1); // Cambiar al video anterior
 }
 
 function irDerecha(event) {
     event.stopPropagation(); // Evita cerrar el modal al hacer clic en el botón
-    cambiarImagen(1); // Cambiar a la imagen siguiente
+    cambiarVideo(1); // Cambiar al video siguiente
 }
 
 // Agregar eventos de clic en las tarjetas para abrir el carrusel
