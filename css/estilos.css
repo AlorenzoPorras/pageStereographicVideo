@@ -228,3 +228,59 @@ footer a:hover {
     box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5); /* Sombra para resaltar el video */
     border-radius: 10px; /* Opcional: esquinas redondeadas */
 }
+
+/* Estilos para que el modal y los videos sean responsivos */
+@media (max-width: 1200px) {
+    .carrusel-3d-container {
+        width: 80vw; /* Ocupa el 80% del ancho de la ventana */
+        height: 80vh; /* Ocupa el 80% del alto de la ventana */
+    }
+
+    .carrusel-item video {
+        max-width: 100%; /* El video ocupa todo el ancho disponible */
+        max-height: 100%; /* El video ocupa todo el alto disponible */
+    }
+}
+
+@media (max-width: 768px) {
+    .carrusel-3d-container {
+        width: 90vw; /* Ocupa el 90% del ancho en pantallas más pequeñas */
+        height: 70vh; /* Ocupa el 70% del alto */
+    }
+
+    .carrusel-item video {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    /* Ajustar botones flotantes en pantallas pequeñas */
+    .btn-floating {
+        padding: 8px 12px; /* Botones más pequeños */
+        font-size: 1.2rem; /* Reducir tamaño del texto */
+    }
+
+    .left-btn {
+        left: 5px;
+    }
+
+    .right-btn {
+        right: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carrusel-3d-container {
+        width: 95vw; /* Ocupa casi todo el ancho */
+        height: 60vh; /* Ocupa el 60% del alto */
+    }
+
+    .carrusel-item video {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .btn-floating {
+        padding: 6px 10px; /* Botones más pequeños */
+        font-size: 1rem; /* Reducir tamaño del texto */
+    }
+}
