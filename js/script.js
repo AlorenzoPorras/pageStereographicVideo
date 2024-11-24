@@ -19,8 +19,8 @@ function mostrarCarrusel(categoria) {
     } else if (categoria === 'caminata') {
         videos = [
             { src: 'videos/caminata.mp4', alt: 'Caminata Monográfica' },
-            { src: 'videos/camD.mp4', alt: 'Caminata Perspectiva Derecha' },
-            { src: 'videos/camI.mp4', alt: 'Caminata Perspectiva Izquierda' }
+            { src: 'videos/camI.mp4', alt: 'Caminata Perspectiva Derecha' },
+            { src: 'videos/camD.mp4', alt: 'Caminata Perspectiva Izquierda' }
         ];
     }
 
