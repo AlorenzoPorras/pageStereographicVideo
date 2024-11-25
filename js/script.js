@@ -6,9 +6,9 @@ function mostrarCarrusel(categoria) {
     let videos = [];
     if (categoria === 'personal') {
         videos = [
-            { src: 'videos/persona_monografica.mp4', alt: 'Persona Monográfica' },
-            { src: 'videos/persona_camI.mp4', alt: 'Persona Perspectiva Izquierda' },
-            { src: 'videos/persona_camD.mp4', alt: 'Persona Perspectiva Derecha' }
+            { src: 'videos/persona.mp4', alt: 'Persona Monográfica' },
+            { src: 'videos/personI.mp4', alt: 'Persona Perspectiva Izquierda' },
+            { src: 'videos/personD.mp4', alt: 'Persona Perspectiva Derecha' }
         ];
     } else if (categoria === 'movimiento') {
         videos = [
